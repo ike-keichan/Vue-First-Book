@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>基礎から学ぶVue.js</title>
+    <link href="main.css"  rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!--Hello World!-->
+        <p>{{message}}</p>
+        <br>
+        <!--配列を専用のfor文で表示可能-->
+        <ol>
+            <li v-for="item in list">{{item}}</li>
+        </ol>
+        <br>
+        <!--クリックイベント1-->
+        <button v-on:click="handleClick">Click</button>
+        <br>
+        <!--入力によって表示を変更-->
+        <p>{{message2}}</p>
+        <input v-model="message2">
+        <br>
+        <!--クリックイベント2-->
+        <button v-on:click="show=!show">切り替え</button>
+        <transition>
+            <p v-if="show">Hello Vue.js!!!</p>
+        </transition>
+        <br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>基礎から学ぶVue.js</title>
+    <link href="main.css"  rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!--オブジェクト要素の表示可能-->
+        <p>Fooooo!! {{message.value}}</p>
+        <p>{{message.value}}</p>
+        <p>{{message.value.length}}</p>
+        <br>
+        <!--配列要素の表示可能-->
+        <p>{{list[2]}}</p>
+        <p>{{list[num]}}</p>
+        <br>
+        <!--数値の計算は可能、文字列との混同に注意-->
+        <p>{{1 + 1}}</p>
+        <p>{{10 % 3}}</p>
+        <br>
+        <!--条件による表示テキストの変更可能-->
+        <p>{{message.value.length >= 10 ? "１０以上" : "１０以下"}}</p>
+        <br>
+        <!--小数点以下を省略する-->
+        <p>{{Math.round(3.14)}}</p>
+        <br>
+        <!--Mustacheを属性に使用・バインドする場合-->
+        <input type="text" v-bind:value="message.value">
+        <br>
+        <!--DOMのプロパティにバインド-->
+        <div v-bind:text-content.prop="message.value"></div>
+        <div v-bind:scroll-top.prop="scroll"></div>
+        <br>
+        <!--countプロパティ表示、ボタンクリックでincrementsメソッドの呼び出し-->
+        <p>{{count}}回クリックしたよ！</p>
+        <button v-on:click="increments">カウントを増やす</button>
+        <br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

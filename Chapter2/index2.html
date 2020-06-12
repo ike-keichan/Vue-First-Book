@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>基礎から学ぶVue.js</title>
+    <link href="main.css"  rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!--クラスやスタイルのバインディング-->
+        <p v-bind:class="{ child: isChild, 'is-active': isActive }">Text</p>
+        <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">Text</p>
+        <br>
+        <!--通常の属性との併用-->
+        <p class="child" v-bind:class="{ 'is-active': isActive }">Text</p>
+        <p style="color:blue" v-bind:style="{ color: textColor }">Text</p>
+        <!--内容がかぶる場合、バインディングの内容が優先される。-->
+        <br>
+        <!--オブジェクトデータの引き渡し-->
+        <p v-bind:class="classObject">Text</p>
+        <p v-bind:style="styleObject">Text</p>
+        <br>
+        <!--複数の属性のバインディング-->
+        <img v-bind="item">
+        <br>
+        <!--SVGのデータバインディング-->
+        <svg xmlns="https://www.w3.org/2000/svg" version="1.1">
+            <circle cx="100" cy="75" v-bind:r="ragius" fill="lightpink" />
+        </svg>
+        <input type="range" min="0" max="100" v-model="radius">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main2.js"></script>
+</body>
+</html>
